@@ -11,7 +11,6 @@ interface CommentRequestBody {
 }
 
 export const GET: APIRoute = async ({ params, request, url }) => {
-    console.debug("request URL:", request.);
     // http://localhost:4321/api/v1/comment/?abc=aa12&ddd=15
     // とアクセスしてもabcが取れない（paramsが空）
     const abc = params.abc || "(null)";
