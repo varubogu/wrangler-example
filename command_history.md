@@ -5,17 +5,22 @@
 1. まずはプロジェクトの新規作成（対話型）
 `npx wrangler init`
 
-  1. 新規プロジェクトの名前設定（後で変えられるのでなんでもいい）
+  a. 新規プロジェクトの名前設定（後で変えられるのでなんでもいい）
 
-  2. Frameworkを選び、今回はAstroを選択（Next.jsやHonoなどでも良い）
+  b. Frameworkを選び、今回はAstroを選択（Next.jsやHonoなどでも良い）
 
 
-2. Cloudflareのログイン
+2. WranglerでCloudflareにログイン
+
+下記２つの方法がある
+
+- 環境変数を使うやり方
+- 環境変数を使わないやり方
 
 環境変数を設定しない場合、
 `npx wrangler login`でログインすれば良い。
 
-しかしこの方法だとDockerコンテナの中（Dev Container含む）の場合に
+ただしDockerコンテナの中（Dev Container含む）の場合に
 ログイン後のWebページからlocalhostへのリダイレクトを処理の都合上で認証ができない。
 その場合は環境変数を使ったやり方を行う。
 
@@ -48,8 +53,9 @@ wrangler.jsonc
 6. GitHubにリポジトリを置いておき、CloudflareのWorkers & PagesにてGitリポジトリと接続すると、
 次回以降はリポジトリの特定ブランチのプッシュに反応してデプロイしてくれる
 
+## 補足
 
-## APIトークン取得方法
+### APIトークン取得方法
 
 Cloudflareのページで
 「アカウントの管理」
@@ -73,7 +79,7 @@ Cloudflareのページで
 トークンが発行されるのでコピーする
 ※セキュリティの都合上、一度ページを閉じると確認できなくなってしまい再発行するしかないので注意
 
-## アカウントID取得方法
+### アカウントID取得方法
 
 CloudflareのページのURLの
 <https://dash.cloudflare.com/{アカウントID}/*******>
